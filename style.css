@@ -142,3 +142,349 @@ button:hover {
   font-size: 48px;
   margin-bottom: 20px;
 }
+/* Basic Styling & NASA Branding */
+:root {
+    /* NASA inspired colors */
+    --nasa-blue: #0b3d91; /* Dark blue */
+    --nasa-red: #fc3d21;  /* Orange-red */
+    --nasa-white: #ffffff;
+    --nasa-gray: #f0f0f0;
+    --text-dark: #333;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* A font similar to NASA's use */
+    margin: 0;
+    padding: 0;
+    background-color: var(--nasa-gray);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--nasa-blue);
+    color: var(--nasa-white);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.input-section {
+    background-color: var(--nasa-white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-section label {
+    font-weight: bold;
+    color: var(--nasa-blue);
+    margin-right: 5px;
+}
+
+.input-section input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-dark);
+}
+
+.input-section button {
+    padding: 12px 25px;
+    background-color: var(--nasa-red);
+    color: var(--nasa-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-section button:hover {
+    background-color: #e0321b; /* Slightly darker red */
+    transform: translateY(-2px);
+}
+
+/* Loading Message */
+.loading-message {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--nasa-blue);
+    margin: 50px 0;
+}
+
+/* Random Space Fact */
+#randomFactSection {
+    background-color: #e6f7ff; /* Lighter blue background */
+    border: 1px solid #cceeff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.space-fact-text {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #0056b3; /* Darker blue for fact text */
+    text-align: center;
+}
+
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.gallery-item {
+    background-color: var(--nasa-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to top/bottom */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Hover Zoom Effect (LevelUp) */
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent look */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    display: block;
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Zoom in effect */
+}
+
+.gallery-item h3 {
+    font-size: 1.2em;
+    margin: 15px 15px 5px 15px;
+    color: var(--nasa-blue);
+    text-align: center;
+}
+
+.gallery-item p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0 15px 15px 15px;
+    text-align: center;
+}
+
+/* Video Entry Styling (LevelUp) */
+.video-link-thumbnail, .video-embed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* Dark background for video thumbnail */
+    color: var(--nasa-white);
+    width: 100%;
+    height: 200px; /* Same height as image thumbnails */
+    font-size: 1.1em;
+    text-decoration: none;
+    text-align: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.video-link-thumbnail:hover {
+    text-decoration: underline;
+}
+
+.video-thumbnail-text {
+    color: #aaa !important; /* Lighter gray for this text */
+    font-size: 0.8em !important;
+    margin-top: 0 !important;
+}
+
+.unsupported-media-msg {
+    padding: 20px;
+    text-align: center;
+    color: #ff6347; /* Tomato color for error */
+    font-style: italic;
+}
+
+
+/* Modal (Pop-up Detailed View) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: var(--nasa-white);
+    margin: 5% auto; /* 5% from the top and centered horizontally */
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px; /* Max width of the modal */
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh; /* Max height relative to viewport */
+    object-fit: contain; /* Ensure full image is visible */
+    display: block;
+    margin: 0 auto 20px auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.modal-content h2 {
+    font-size: 1.8em;
+    color: var(--nasa-blue);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 1em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-align: justify; /* Justify explanation text */
+}
+
+.modal-content p#modalDate {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--nasa-red);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--nasa-blue);
+    color: var(--nasa-white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--nasa-red);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffc907; /* A contrasting color on hover */
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .input-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-section button {
+        width: 100%;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        padding: 10px;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+
+    .close-button {
+        font-size: 30px;
+        top: 10px;
+        right: 20px;
+    }
+}
